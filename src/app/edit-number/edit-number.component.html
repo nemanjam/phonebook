@@ -28,17 +28,17 @@
       </div>
 
       <div formArrayName="tags" class="form-group"
-        *ngFor="let item of editForm.get('tags').controls; let i = index;">
+        *ngFor="let item of editForm.get('tags')['controls']; let i = index;">
         <div [formGroupName]="i">
           <label for="tag{{i+1}}">Tag {{i+1}}:</label>
           <input formControlName="tag" id="tag{{i+1}}" class="form-control">
         </div>
-        <button *ngIf="editForm.get('tags').controls.length > 1" 
+        <button *ngIf="editForm.get('tags')['controls'].length > 1" 
                 (click)="removeTag(i)" class="btn btn-danger mt-2">Remove tag</button>
       </div>
       <button (click)="addTag()" type="button" class="btn btn-secondary">Add tag</button>
       <button class="btn btn-primary float-right"
-              [disabled]="editForm.invalid">Edit</button>
+              [disabled]="editForm.invalid">Edit number</button>
     </form>
   </div>
   <!-- <pre>{{editForm.value | json }}</pre>  -->

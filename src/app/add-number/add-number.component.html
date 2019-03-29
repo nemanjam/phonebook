@@ -27,12 +27,12 @@
     </div>
 
     <div formArrayName="tags" class="form-group"
-      *ngFor="let item of addForm.get('tags').controls; let i = index;">
+      *ngFor="let item of addForm.get('tags')['controls']; let i = index;">
       <div [formGroupName]="i">
         <label for="tag{{i+1}}">Tag {{i+1}}:</label>
         <input formControlName="tag" id="tag{{i+1}}" class="form-control">
       </div>
-      <button *ngIf="addForm.get('tags').controls.length > 1" 
+      <button *ngIf="addForm.get('tags')['controls'].length > 1" 
               (click)="removeTag(i)" class="btn btn-danger mt-2">Remove tag</button>      
     </div>
 
